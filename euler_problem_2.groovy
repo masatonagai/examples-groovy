@@ -3,7 +3,7 @@
 // By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 
 def fib = { n ->
-  if (n <= 1) 1
+  if (n <= 1) n
   else call(n - 1) + call(n - 2)
 }
 
