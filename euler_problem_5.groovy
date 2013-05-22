@@ -4,7 +4,7 @@
 // lcm(a, b) * gcd(a, b) == (a * b)
 // lcm(a, b) == (a * b) / gcd(a, b)
 
-def gcd2 = { long a, long b ->
+def gcd = { long a, long b ->
   if (a < b) {
     (a, b) = [b, a]
   }
@@ -14,7 +14,11 @@ def gcd2 = { long a, long b ->
   a
 }
 
-def gcd = { coll ->
+def lcm = { long a, long b ->
+  (a * b) / gcd(a, b)
+}
+
+def llcm = { coll ->
   if (coll.size() == 1) {
     coll.first()
   } else {
@@ -23,12 +27,12 @@ def gcd = { coll ->
         it.first()
       } else {
         def (long a, long b) = it
-        (a * b) / gcd2(a, b)
+        lcm(a, b)
       }
     })
   }
 }
 
-assert gcd(1..10) == 2520
+assert llcm(1..10) == 2520
 
-println gcd(1..20)
+println llcm(1..20)
