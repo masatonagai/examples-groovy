@@ -30,7 +30,7 @@ def numPairs = { str, digits ->
 assert numPairs("12345", 2) == [[1, 2], [2, 3], [3, 4], [4, 5]]
 
 def product = { nums ->
-  nums.inject(1) { p, n -> p * n }
+  nums.inject { p, n -> p * n }
 }
 
 assert product([1, 2, 3]) == 6
